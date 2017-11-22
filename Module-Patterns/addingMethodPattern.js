@@ -1,0 +1,1 @@
+module.exports.showMsg = () => console.log('export object is added with THE method !!!')

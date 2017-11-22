@@ -1,0 +1,1 @@
+module.exports = () => console.log('export object Overridden with a function!!!')
