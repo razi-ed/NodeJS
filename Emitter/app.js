@@ -1,8 +1,32 @@
-let Emitter = require('./emitter.js');
+// showing eventEmitter
 
-let emtr = new Emitter();
+// user-defined eventEmitter
+let Emitter = require('./emitter.js')
 
-emtr.on('greet', () => { console.log('hi!') });
-emtr.on('greet', () => { console.log('hello!') });
+// lib eventEmitter
+let libuvEmitter = require('events')
+let event = require('./config.js').events
 
-emtr.emit('greet');
+let emtr = new Emitter(); // user-defined eventEmitter
+let intEmtr = new libuvEmitter() // lib eventEmitter
+    // let event = eventConfig.events
+
+// user-defined eventEmitter
+emtr.on(event.GREET, () => {
+    console.log('hi!')
+})
+emtr.on(event.GREET, () => {
+    console.log('hello!')
+})
+
+emtr.emit(event.GREET)
+
+// lib eventEmitter
+intEmtr.on(event.SHOWMSG, () => {
+    console.log('Displaying via libuv!!')
+})
+intEmtr.on(event.SHOWMSG, () => {
+    console.log('Again Displaying via libuv!!')
+})
+
+intEmtr.emit(event.SHOWMSG)
