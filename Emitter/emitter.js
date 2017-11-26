@@ -1,3 +1,7 @@
+//working of eventEmitter
+
+//user-defined eventEmitter
+
 function Emitter() {
     this.events = {}
 }
